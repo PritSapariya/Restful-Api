@@ -18,13 +18,18 @@ mongoose.connect(process.env.DB_CONNECTION, {
 .then(() => console.log('Database connetion completed.'))
 .catch((err) => console.log(err));
 
+//IMPORTING ROUTES
+const postsRoute = require('./routes/posts');
+
 
 //ROUTES
+app.use('/posts', postsRoute);
+
 app.get('/', (req,res) => {
     res.send('Hello World!!');
 });
 
 //LISTENING TO THE SERVER
-app.listen(5000, () => {
+app.listen(3000, () => {
     console.log('Node Application Started');
 });
