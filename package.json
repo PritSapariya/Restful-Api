@@ -1,0 +1,25 @@
+{
+  "name": "restful-api",
+  "version": "1.0.0",
+  "description": "Built a restful API with Node.js, Express.js and MongoDB (Atlas). This a very fundamental level API. The purpose to create this repo to give very fundamental and clear knowledge regarding implementation.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PritSapariya/Restful-Api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PritSapariya/Restful-Api/issues"
+  },
+  "homepage": "https://github.com/PritSapariya/Restful-Api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3"
+  }
+}
