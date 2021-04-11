@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const collectedPosts = await Post.find();
         res.json(collectedPosts);
     } catch (err) {
-        res.json(err);
+        res.json({message: err});
     }
 });
 
@@ -22,7 +22,42 @@ router.post('/', async (req, res) => {
         const savedPost = await post.save();
         res.json(savedPost);
     } catch (err) {
-        res.json(err);
+        res.json({message: err});
+    }
+});
+
+//SPECIFIC POST
+router.get('/:postID', async (req, res) => {
+    try{
+        const collectedPost = await Post.findById(req.params.postID);
+        res.json(collectedPost);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+//DELETING POST
+router.delete('/:postID', async (req, res) => {
+    try {
+        const deletePost = await Post.remove({_id: req.params.postID});
+        res.json(deletePost);
+    } catch (err) {
+        res.json({message: err});
+    }
+});
+
+//UPDATING POST
+router.patch('/:postID', async (req, res) => {
+    try {
+        const updatePost = await Post.updateOne({_id: req.params.postID},{
+            $set: {
+                title: "my updated post",
+                description: "this is decription for updating post"
+            }
+        });
+        res.json(updatePost);
+    } catch (err) {
+        res.json(res);
     }
 });
 
