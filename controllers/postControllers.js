@@ -39,9 +39,24 @@ const deleteSpecificPost = async (req, res) => {
     }
 }
 
+const updatePostByID = async (req, res) => {
+    try {
+        const updatePost = await Post.updateOne({_id: req.params.postID},{
+            $set: {
+                title: req.body.title,
+                description: req.body.description
+            }
+        });
+        res.json(updatePost);
+    } catch (err) {
+        res.json(res);
+    }
+}
+
 module.exports = {
     getAllPosts,
     addPost,
     getSpecificPost,
-    deleteSpecificPost
+    deleteSpecificPost,
+    updatePostByID
 }
